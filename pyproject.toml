@@ -3,13 +3,20 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nest-pip-package"   # distribution name on (Test)PyPI — can have hyphens
-version = "0.1.0"
+name = "nest-zc"   # distribution name on (Test)PyPI — can have hyphens
+version = "0.1.5"
 description = "Example"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 authors = [{name="You", email="you@example.com"}]
+dependencies = [
+    "eclipse-zenoh==1.3.4",
+    "pycdr2==1.0.0",
+]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nest"]     # path to your import package directory
+packages = ["src/nest_zc"]     # path to your import package directory
+
+[project.scripts]
+nest-zc-hello = "nest_zc.__main__:main"
